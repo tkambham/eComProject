@@ -29,14 +29,19 @@ public class ProductController {
     }
 
     @GetMapping("/product/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable int id){
-
-        Product product = service.getProductById(id);
-
-        if(product != null)
-            return new ResponseEntity<>(product, HttpStatus.FOUND);
-        else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Product getProduct(@PathVariable int id){
+        return service.getProductById(id);
     }
+
+//    @GetMapping("/product/{id}")
+//    public ResponseEntity<Product> getProduct(@PathVariable int id){
+//
+//        Product product = service.getProductById(id);
+//
+//        if(product != null)
+//            return new ResponseEntity<>(product, HttpStatus.FOUND);
+//        else{
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 }
